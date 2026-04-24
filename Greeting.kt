@@ -7,3 +7,4 @@ fun main() {
     greeting = "Добрый вечер"
     println("$greeting, $userName! Добро пожаловать в приложение.")
 }
+// Изменение для задачи KS-3-1
