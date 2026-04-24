@@ -1,5 +1,5 @@
-fun main (){
- var lastName = "Андреева"
+fun main() {
+  var lastName = "Андреева"
   val firstName = "Татьяна"
   val middleName = "Сергеевна"
   var age = 20
