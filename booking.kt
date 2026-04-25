@@ -1,9 +1,10 @@
+const val TOTAL_TABLES = 13
+
 fun main() {
-    val tables = 13
-    val bookedToday = tables // 13 из 13 забронировано
-    val bookedTomorrow = 9 // 9 из 13 забронировано
+    val bookedToday = TOTAL_TABLES
+    val bookedTomorrow = 9
 
     println(
-            "Доступность столиков на сегодня: ${bookedToday < tables}\nДоступность столиков на завтра: ${bookedTomorrow < tables}"
+            "[Доступность столиков на сегодня: ${bookedToday < TOTAL_TABLES}],\n[Доступность столиков на завтра: ${bookedTomorrow < TOTAL_TABLES}]"
     )
 }
