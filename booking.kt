@@ -1,7 +1,8 @@
 const val TOTAL_TABLES = 13
 
 fun main() {
-    val bookedToday = TOTAL_TABLES
+    // Данные из условия: сегодня забронировано 13 столов (явное значение!)
+    val bookedToday = 13
     val bookedTomorrow = 9
 
     println(
