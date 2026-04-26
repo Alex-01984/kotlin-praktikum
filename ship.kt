@@ -1,23 +1,36 @@
+// Константы для пороговых значений (убираем «магические числа»)
+const val MIN_CREW = 55
+const val MAX_CREW = 70
+const val MAX_RECOMMENDED_CREW = 70
+const val MIN_PROVISIONS_STRICT = 50 // > 50 для первого сценария
+const val MIN_PROVISIONS_ALTERNATIVE = 50 // >= 50 для второго сценария
+
 fun main() {
-    // Ввод данных с понятными подсказками
     println("Введите данные для проверки возможности отплытия:")
 
+    // Используем readln() — не требует обработки null, код чище
     print("Повреждения корпуса (true = нет, false = есть): ")
-    val noDamage = readLine()?.toBoolean() ?: false
+    val noDamage = readln().toBoolean()
 
     print("Численность экипажа (человек): ")
-    val crewSize = readLine()?.toIntOrNull() ?: 0
+    val crewSize = readln().toInt()
 
     print("Количество ящиков с провизией: ")
-    val provisions = readLine()?.toIntOrNull() ?: 0
+    val provisions = readln().toInt()
 
     print("Благоприятная погода (true/false): ")
-    val goodWeather = readLine()?.toBoolean() ?: false
+    val goodWeather = readln().toBoolean()
 
     // Единое составное условие (только логические операторы)
     val canSail =
-            (noDamage && crewSize >= 55 && crewSize <= 70 && provisions > 50) ||
-                    (!noDamage && crewSize == 70 && goodWeather && provisions >= 50)
+            (noDamage &&
+                    crewSize >= MIN_CREW &&
+                    crewSize <= MAX_CREW &&
+                    provisions > MIN_PROVISIONS_STRICT) ||
+                    (!noDamage &&
+                            crewSize == MAX_RECOMMENDED_CREW &&
+                            goodWeather &&
+                            provisions >= MIN_PROVISIONS_ALTERNATIVE)
 
     println("Корабль может отправиться в плавание: $canSail")
 }
