@@ -8,24 +8,16 @@ fun main() {
 
     // 2. Этап авторизации
     println("\n=== Авторизация ===")
-    var inputLogin = ""
-    var inputPassword = ""
-    var isAuthorized = false
-
     do {
         print("Введите логин: ")
-        inputLogin = readln()
+        val inputLogin = readln()
         print("Введите пароль: ")
-        inputPassword = readln()
+        val inputPassword = readln()
 
-        // Вычисляем результат СРАВНЕНИЯ ОДИН РАЗ
-        isAuthorized = inputLogin == regLogin && inputPassword == regPassword
-
-        // Сообщаем об ошибке только если авторизация не прошла
-        if (!isAuthorized) {
+        if (inputLogin != regLogin || inputPassword != regPassword) {
             println("Неверные логин или пароль. Попробуйте снова.")
         }
-    } while (!isAuthorized)
+    } while (inputLogin != regLogin || inputPassword != regPassword)
 
     println("Авторизация прошла успешно")
 }
