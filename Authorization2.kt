@@ -10,6 +10,7 @@ fun main() {
     println("\n=== Авторизация ===")
     var inputLogin = ""
     var inputPassword = ""
+    var isAuthorized = false
 
     do {
         print("Введите логин: ")
@@ -17,10 +18,14 @@ fun main() {
         print("Введите пароль: ")
         inputPassword = readln()
 
-        if (inputLogin != regLogin || inputPassword != regPassword) {
+        // Вычисляем результат СРАВНЕНИЯ ОДИН РАЗ
+        isAuthorized = inputLogin == regLogin && inputPassword == regPassword
+
+        // Сообщаем об ошибке только если авторизация не прошла
+        if (!isAuthorized) {
             println("Неверные логин или пароль. Попробуйте снова.")
         }
-    } while (inputLogin != regLogin || inputPassword != regPassword)
+    } while (!isAuthorized)
 
     println("Авторизация прошла успешно")
 }
