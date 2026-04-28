@@ -1,24 +1,26 @@
 fun main() {
-    // 1. Этап регистрации: создаём учётные данные
+    // 1. Этап регистрации
     println("=== Регистрация ===")
     print("Придумайте логин: ")
     val regLogin = readln()
     print("Придумайте пароль: ")
     val regPassword = readln()
 
-    // 2. Этап авторизации: проверяем введённые данные
+    // 2. Этап авторизации
     println("\n=== Авторизация ===")
-    while (true) {
-        print("Введите логин: ")
-        val inputLogin = readln()
-        print("Введите пароль: ")
-        val inputPassword = readln()
+    var inputLogin = ""
+    var inputPassword = ""
 
-        if (inputLogin == regLogin && inputPassword == regPassword) {
-            println("Авторизация прошла успешно")
-            break
-        } else {
+    do {
+        print("Введите логин: ")
+        inputLogin = readln()
+        print("Введите пароль: ")
+        inputPassword = readln()
+
+        if (inputLogin != regLogin || inputPassword != regPassword) {
             println("Неверные логин или пароль. Попробуйте снова.")
         }
-    }
+    } while (inputLogin != regLogin || inputPassword != regPassword)
+
+    println("Авторизация прошла успешно")
 }
