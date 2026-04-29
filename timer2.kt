@@ -1,12 +1,11 @@
 fun main() {
     print("Введите количество секунд: ")
-    val totalSeconds = readln().toLong() // исходное значение — неизменно
-    var remaining = totalSeconds // счётчик — изменяемый
+    var seconds = readln().toLong() // одна переменная, сразу mutable
 
-    while (remaining > 0) {
-        println("Осталось секунд: $remaining")
+    while (seconds > 0) {
+        println("Осталось секунд: $seconds")
         Thread.sleep(1000)
-        remaining--
+        seconds-- // уменьшаем ту же переменную
     }
 
     println("Время вышло")
