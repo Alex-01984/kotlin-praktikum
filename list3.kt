@@ -1,14 +1,27 @@
-fun main() {
-    val baseAmounts = listOf(2, 50, 15)
+// Константы для индексов (compile-time constants)
+const val EGG_INDEX = 0
+const val MILK_INDEX = 1
+const val BUTTER_INDEX = 2
 
+val BASE_AMOUNTS = listOf(2, 50, 15)
+
+fun main() {
     println(
-            "Список ингредиентов для одной порции: Яиц – ${baseAmounts[0]} шт, молока – ${baseAmounts[1]} мл, сливочного масла – ${baseAmounts[2]} гр"
+            "Список ингредиентов для одной порции: Яиц – ${BASE_AMOUNTS[EGG_INDEX]} шт, " +
+                    "молока – ${BASE_AMOUNTS[MILK_INDEX]} мл, " +
+                    "сливочного масла – ${BASE_AMOUNTS[BUTTER_INDEX]} гр"
     )
+
     print("Введите количество порций: ")
     val portions = readln().toInt()
-    // Внутри map каждый элемент (it) умножается на portions
-    val scaledIngredients = baseAmounts.map { it * portions }
+
+    // Модернизируем список: создаём новый с пересчитанными значениями
+    val scaledIngredients = BASE_AMOUNTS.map { it * portions }
+
+    // Вывод результата
     println(
-            "На $portions порций вам понадобится: Яиц – ${scaledIngredients[0]} шт, молока – ${scaledIngredients[1]} мл, сливочного масла – ${scaledIngredients[2]} гр"
+            "На $portions порций вам понадобится: Яиц – ${scaledIngredients[EGG_INDEX]} шт, " +
+                    "молока – ${scaledIngredients[MILK_INDEX]} мл, " +
+                    "сливочного масла – ${scaledIngredients[BUTTER_INDEX]} гр"
     )
 }
