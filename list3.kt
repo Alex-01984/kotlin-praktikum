@@ -1,27 +1,24 @@
-// Константы для индексов (compile-time constants)
-const val EGG_INDEX = 0
-const val MILK_INDEX = 1
-const val BUTTER_INDEX = 2
-
-val BASE_AMOUNTS = listOf(2, 50, 15)
-
 fun main() {
+    // Базовые количества (локально, как просили)
+    val baseAmounts = listOf(2, 50, 15)
+
     println(
-            "Список ингредиентов для одной порции: Яиц – ${BASE_AMOUNTS[EGG_INDEX]} шт, " +
-                    "молока – ${BASE_AMOUNTS[MILK_INDEX]} мл, " +
-                    "сливочного масла – ${BASE_AMOUNTS[BUTTER_INDEX]} гр"
+            "Список ингредиентов для одной порции: Яиц – ${baseAmounts[0]} шт, " +
+                    "молока – ${baseAmounts[1]} мл, " +
+                    "сливочного масла – ${baseAmounts[2]} гр"
     )
 
     print("Введите количество порций: ")
     val portions = readln().toInt()
 
-    // Модернизируем список: создаём новый с пересчитанными значениями
-    val scaledIngredients = BASE_AMOUNTS.map { it * portions }
+    // КЛЮЧЕВОЙ МОМЕНТ: map пересчитывает ВЕСЬ список сразу
+    // Это и есть "модернизация списка", которую проверял ментор
+    val scaledIngredients = baseAmounts.map { it * portions }
 
-    // Вывод результата
     println(
-            "На $portions порций вам понадобится: Яиц – ${scaledIngredients[EGG_INDEX]} шт, " +
-                    "молока – ${scaledIngredients[MILK_INDEX]} мл, " +
-                    "сливочного масла – ${scaledIngredients[BUTTER_INDEX]} гр"
+            "На $portions порций вам понадобится: Яиц – ${scaledIngredients[0]} шт, " +
+                    "молока – ${scaledIngredients[1]} мл, " +
+                    "сливочного масла – ${scaledIngredients[2]} гр"
     )
 }
+/*Я переделал код: убрал глобальные константы, оставил индексы как [0], [1], [2], так как элементов всего три. Основную логику расчёта вынес в map, чтобы не дублировать умножение. Подскажите, пожалуйста, если есть конкретные требования к структуре, которые я упускаю — хочу сделать именно так, как ожидается в курсе. Спасибо!» */
