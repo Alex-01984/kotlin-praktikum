@@ -6,7 +6,9 @@ fun main() {
     )
     print("Введите количество порций: ")
     val portions = readln().toInt()
+    // Внутри map каждый элемент (it) умножается на portions
+    val scaledIngredients = baseAmounts.map { it * portions }
     println(
-            "На $portions порций вам понадобится: Яиц – ${baseAmounts[0] * portions} шт, молока – ${baseAmounts[1] * portions} мл, сливочного масла – ${baseAmounts[2] * portions} гр"
+            "На $portions порций вам понадобится: Яиц – ${scaledIngredients[0]} шт, молока – ${scaledIngredients[1]} мл, сливочного масла – ${scaledIngredients[2]} гр"
     )
 }
