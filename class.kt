@@ -1,9 +1,9 @@
 // Класс вынесен за пределы main() и использует первичный конструктор
 class User(
         val id: Int,
-        var login: String,
-        var password: String,
-        var email: String,
+        val login: String,
+        val password: String,
+        val email: String,
 )
 
 fun main() {
