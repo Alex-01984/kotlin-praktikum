@@ -1,8 +1,7 @@
-// 1. Креды в константах (неизменяемы, инициализированы заранее)
 const val VALID_LOGIN = "admin"
 const val VALID_PASSWORD = "1234"
 
-// 2. Метод авторизации: принимает данные, проверяет, возвращает токен или null
+// 1. Метод авторизации: проверяет креды, возвращает токен или null
 fun authorize(login: String, password: String): String? {
     if (login == VALID_LOGIN && password == VALID_PASSWORD) {
         return buildString {
@@ -13,9 +12,10 @@ fun authorize(login: String, password: String): String? {
     return null
 }
 
-// 3. Метод получения корзины: принимает токен, возвращает список или null
-fun getShoppingCart(token: String?): List<String>? {
-    if (token.isNullOrBlank()) return null
+// 2. Метод корзины: принимает НЕ нулевой токен, возвращает список
+fun getShoppingCart(token: String): List<String> {
+    // Логика работы с токеном (проверка, логирование и т.д.) может быть здесь.
+    // Для учебной задачи просто возвращаем заранее созданный список.
     return listOf("Ноутбук", "Смартфон", "Наушники", "Клавиатура")
 }
 
@@ -25,14 +25,14 @@ fun main() {
     print("Введите пароль: ")
     val password = readln()
 
-    // Цепочка вызовов
+    // 3. Проверка авторизации сразу после вызова (как просил ментор)
     val token = authorize(login, password)
-    val cart = getShoppingCart(token)
 
-    // Обработка результата в main
-    if (cart != null) {
-        println("Содержимое корзины: ${cart.joinToString(", ")}")
-    } else {
+    if (token == null) {
         println("Неудачная авторизация. Доступ к корзине запрещен.")
+    } else {
+        // Передаём гарантированно валидный токен
+        val cart = getShoppingCart(token)
+        println("Содержимое корзины: ${cart.joinToString(", ")}")
     }
 }
