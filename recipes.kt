@@ -2,7 +2,7 @@
 class Ingredient(
     val id: Int,
     val name: String,
-    var quantity: Float,
+    val quantity: Float,
     // Публичное неизменяемое свойство: единица измерения (например, "г", "шт")
     val unit: String,
 )
@@ -20,12 +20,12 @@ class Recipe(
     val id: Int,
     val title: String,
     val imageUrl: String,
-    var cookingTimeMinutes: Int,
+    val cookingTimeMinutes: Int,
     val servings: Int = 1,
-    var instructions: String? = null,
+    val instructions: List<String> = emptyList(),
     var isFavorite: Boolean = false,
     val ingredients: List<Ingredient>,
-    val categoryId: Long? = null,
+    val categoryId: Int? = null,
 )
 
 fun main() {}
