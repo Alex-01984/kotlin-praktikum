@@ -2,7 +2,7 @@ class ForumMember(val userId: Int, val userName: String)
 
 class ForumMessage(val authorId: Int, val message: String)
 
-class Forum() {
+class Forum {
     private var id = 0
 
     // списки для хранения данных (приватные)
@@ -35,16 +35,15 @@ class Forum() {
             val newMessage = ForumMessage(authorId, text)
             forumMessages.add(newMessage)
             return newMessage
-        } else {
-            return null
         }
+        return null
     }
 
     // печатает все сообщения добавленные на форум
     fun printThread() {
         for (message in forumMessages) {
             val author = listForum.find { message.authorId == it.userId }
-            println("автор: ${author?.userName}, сообщение: ${message.message}")
+            println("${author?.userName}: ${message.message}")
         }
     }
 }
