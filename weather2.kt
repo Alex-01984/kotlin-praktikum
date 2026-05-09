@@ -1,7 +1,7 @@
 class Weather2(
-    val dayTemperature: Float,
-    val nightTemperature: Float,
-    val precipitation: Boolean,
+    var dayTemperature: Float,
+    var nightTemperature: Float,
+    var precipitation: Boolean,
 ) {
     fun printWeather() {
         println("Дневная: $dayTemperature°C, Ночная: $nightTemperature°C, Осадки: $precipitation")
