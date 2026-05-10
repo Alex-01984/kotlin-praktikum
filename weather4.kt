@@ -1,12 +1,10 @@
 const val KELVIN_TO_CELSIUS = 273
 
-class Weather4(dayK: Int, nightK: Int, hasPrecipitation: Boolean) {
-    val dayTemperature: Int = dayK - KELVIN_TO_CELSIUS
-    val nightTemperature: Int = nightK - KELVIN_TO_CELSIUS
-    val precipitation: Boolean = hasPrecipitation
-
+class Weather4(val dayK: Int, val nightK: Int, val hasPrecipitation: Boolean) {
     init {
-        println("Дневная: $dayTemperature°C, Ночная: $nightTemperature°C, Осадки: $precipitation")
+        println(
+            "Дневная: ${dayK - KELVIN_TO_CELSIUS}°C, Ночная: ${nightK - KELVIN_TO_CELSIUS}°C, Осадки: $hasPrecipitation",
+        )
     }
 }
 
