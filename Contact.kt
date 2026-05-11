@@ -4,4 +4,4 @@ class Contact(
     val company: String?,
 )
 
-fun main() {}
+fun Main() {}
