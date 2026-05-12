@@ -17,9 +17,9 @@ fun main() {
         if (nameInput.lowercase() == "exit") break
 
         print("Введите номер телефона: ")
-        val phoneInput = readlnOrNull()!!
-
+        val phoneInput = readlnOrNull() ?: ""
         val phoneNumber = phoneInput.toLongOrNull()
+
         if (phoneNumber == null) {
             println("Номер телефона не введён или некорректен. Запись не добавлена.\n")
             continue
@@ -27,7 +27,7 @@ fun main() {
 
         print("Введите название компании: ")
         val rawCompany = readlnOrNull()
-        val companyInput = if (rawCompany != null && rawCompany.isNotEmpty()) rawCompany else null
+        val companyInput = rawCompany?.takeIf { it.isNotEmpty() }
 
         personList.add(Contact4(nameInput, phoneNumber, companyInput))
     }
