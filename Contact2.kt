@@ -3,15 +3,15 @@ class Contact2(
     val phoneNumber: Long,
     val company: String? = null,
 ) {
-    fun infoContact() {
+    fun printInfo() {
         println("Имя: $name\nНомер: $phoneNumber\nКомпания: ${company ?: "<не указано>"}")
     }
 }
 
 fun main() {
     val person = Contact2("Ростислав", 89123456789, "Reddit")
-    person.infoContact()
+    person.printInfo()
 
     val person2 = Contact2("Ростислав", 89123456789)
-    person2.infoContact()
+    person2.printInfo()
 }
