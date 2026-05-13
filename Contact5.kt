@@ -24,7 +24,7 @@ fun main() {
         }
 
         print("Введите название компании: ")
-        val companyInput = readlnOrNull()
+        val companyInput = readln().ifEmpty { null }
 
         personList.add(Contact5(nameInput, phoneNumber, companyInput))
     }
