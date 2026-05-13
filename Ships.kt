@@ -8,8 +8,6 @@ class Cargo(
     override val speed: Int = 40,
     override val passengerCapacity: Int = 40,
     override val cargoCapacity: Int = 600,
-     /*speed = ← это имя параметра в конструкторе родителя (Liner)
-     speed ← это значение параметра из конструктора потомка (Cargo) */
 ) : Liner(speed = speed, passengerCapacity = passengerCapacity, cargoCapacity = cargoCapacity)
 
 class Icebreaker(
