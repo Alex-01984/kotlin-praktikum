@@ -4,7 +4,7 @@ open class Liner {
     open val cargoCapacity: Int = 250
 }
 
-class Cargo : Liner() {
+class CargoShip : Liner() {
     override val speed: Int = 40
     override val passengerCapacity: Int = 40
     override val cargoCapacity: Int = 600
@@ -18,6 +18,6 @@ class Icebreaker : Liner() {
 
 fun main() {
     val liner = Liner()
-    val cargo = Cargo()
+    val cargo = CargoShip()
     val icebreaker = Icebreaker()
 }
