@@ -30,8 +30,8 @@ fun main() {
             Circle(COLOR_BLACK, 4.2),
             Circle(COLOR_BLACK, 5.6),
         )
-    val sumPerimeter = figures.filter { it.color == "black" }.sumOf { it.perimeter() }
-    val sumArea = figures.filter { it.color == "white" }.sumOf { it.area() }
+    val sumPerimeter = figures.filter { it.color == COLOR_BLACK }.sumOf { it.perimeter() }
+    val sumArea = figures.filter { it.color == COLOR_WHITE }.sumOf { it.area() }
 
     println(
         "Сумма периметров всех черных фигур: $sumPerimeter\nСумма площадей всех белых фигур: $sumArea",
