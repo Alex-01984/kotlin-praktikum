@@ -3,7 +3,7 @@ open class Liner2 {
     open val passengerCapacity: Int = 200
     open val cargoCapacity: Int = 250
 
-    fun extendsRamp() {
+    open fun performLoading() {
         println("Способен выдвигать горизонтальный трап со шкафута.")
     }
 
@@ -19,7 +19,7 @@ class CargoShip2 : Liner2() {
     override val passengerCapacity: Int = 40
     override val cargoCapacity: Int = 600
 
-    fun loadingCrane() {
+    override fun performLoading() {
         println("Способен активировать погрузочный кран.")
     }
 
@@ -33,9 +33,8 @@ class CargoShip2 : Liner2() {
 class IceBreaker2 : Liner2() {
     override val speed: Int = 25
     override val passengerCapacity: Int = 35
-    val canBreakIce: Boolean = true
 
-    fun opensGate() {
+    override fun performLoading() {
         println("Способен открывать ворота со стороны кормы.")
     }
 
@@ -47,13 +46,13 @@ class IceBreaker2 : Liner2() {
 fun main() {
     val liner = Liner2()
     liner.infoShips()
-    liner.extendsRamp()
+    liner.performLoading()
 
     val cargoShip = CargoShip2()
     cargoShip.infoShips()
-    cargoShip.loadingCrane()
+    cargoShip.performLoading()
 
     val iceBreaker = IceBreaker2()
     iceBreaker.infoShips()
-    iceBreaker.opensGate()
+    iceBreaker.performLoading()
 }
