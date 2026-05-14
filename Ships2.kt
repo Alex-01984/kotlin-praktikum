@@ -7,7 +7,7 @@ open class Liner2 {
         println("Способен выдвигать горизонтальный трап со шкафута.")
     }
 
-    open fun infoShips() {
+    open fun showInfo() {
         println(
             "Характеристика лайнера:\nСкорость: $speed\nКоличество пассажиров: $passengerCapacity\nГрузоподъемность: $cargoCapacity",
         )
@@ -23,7 +23,7 @@ class CargoShip2 : Liner2() {
         println("Способен активировать погрузочный кран.")
     }
 
-    override fun infoShips() {
+    override fun showInfo() {
         println(
             "Характеристика грузового корабля:\nСкорость: $speed\nКоличество пассажиров: $passengerCapacity\nГрузоподъемность: $cargoCapacity",
         )
@@ -38,21 +38,21 @@ class IceBreaker2 : Liner2() {
         println("Способен открывать ворота со стороны кормы.")
     }
 
-    override fun infoShips() {
+    override fun showInfo() {
         println("Характеристика ледокола:\nСкорость: $speed\nКоличество пассажиров: $passengerCapacity")
     }
 }
 
 fun main() {
     val liner = Liner2()
-    liner.infoShips()
+    liner.showInfo()
     liner.performLoading()
 
     val cargoShip = CargoShip2()
-    cargoShip.infoShips()
+    cargoShip.showInfo()
     cargoShip.performLoading()
 
     val iceBreaker = IceBreaker2()
-    iceBreaker.infoShips()
+    iceBreaker.showInfo()
     iceBreaker.performLoading()
 }
