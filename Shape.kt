@@ -1,13 +1,16 @@
+const val COLOR_BLACK = "black"
+const val COLOR_WHITE = "white"
+
 abstract class Figure(val color: String) {
     abstract fun area(): Double
 
     abstract fun perimeter(): Double
 }
 
-class Rectangle(color: String, val w: Double, val h: Double) : Figure(color) {
-    override fun area() = w * h
+class Rectangle(color: String, val width: Double, val height: Double) : Figure(color) {
+    override fun area() = width * height
 
-    override fun perimeter() = 2 * (w + h)
+    override fun perimeter() = 2 * (width + height)
 }
 
 class Circle(color: String, val radius: Double) : Figure(color) {
@@ -19,13 +22,13 @@ class Circle(color: String, val radius: Double) : Figure(color) {
 fun main() {
     val figures =
         listOf<Figure>(
-            Rectangle("black", 3.2, 3.3),
-            Rectangle("black", 4.2, 5.3),
-            Rectangle("white", 4.2, 5.3),
-            Rectangle("white", 6.2, 5.0),
-            Circle("black", 5.6),
-            Circle("black", 4.2),
-            Circle("white", 5.6),
+            Rectangle(COLOR_BLACK, 3.2, 3.3),
+            Rectangle(COLOR_BLACK, 4.2, 5.3),
+            Rectangle(COLOR_WHITE, 4.2, 5.3),
+            Rectangle(COLOR_WHITE, 6.2, 5.0),
+            Circle(COLOR_BLACK, 5.6),
+            Circle(COLOR_BLACK, 4.2),
+            Circle(COLOR_BLACK, 5.6),
         )
     val sumPerimeter = figures.filter { it.color == "black" }.sumOf { it.perimeter() }
     val sumArea = figures.filter { it.color == "white" }.sumOf { it.area() }
