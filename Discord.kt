@@ -34,15 +34,15 @@ class Chat(val messages: MutableList<Message> = mutableListOf()) {
     fun printChat() {
         val groups =
             messages.groupBy {
-                    сообщение ->
-                if (сообщение is ChildMessage) сообщение.parentMessageId else сообщение.id
+                    message ->
+                if (message is ChildMessage) message.parentMessageId else message.id
             }
         for (group in groups.values) {
             for (msg in group) {
                 if (msg is ChildMessage) {
-                    println("\t" + msg.text)
+                    println("\t${msg.author}: ${msg.text}")
                 } else {
-                    println(msg.text)
+                    println("${msg.author}: ${msg.text}")
                 }
             }
         }
