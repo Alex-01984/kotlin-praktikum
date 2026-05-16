@@ -33,8 +33,7 @@ class Chat(val messages: MutableList<Message> = mutableListOf()) {
 
     fun printChat() {
         val groups =
-            messages.groupBy {
-                    message ->
+            messages.groupBy { message ->
                 if (message is ChildMessage) message.parentMessageId else message.id
             }
         for (group in groups.values) {
