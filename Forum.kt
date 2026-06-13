@@ -1,3 +1,4 @@
+// KS-15-3: Исправленный код (перенос реализации в абстрактный класс)
 abstract class ForumUser(val name: String) {
     fun readForum() = println("$name читает сообщения на форуме.")
 
