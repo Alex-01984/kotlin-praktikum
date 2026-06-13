@@ -1,26 +1,12 @@
-interface Moveable {
+interface Movable {
     fun move()
 }
 
 interface PassengerCarrier {
-    fun loadPassenger()
+    val maxPassengers: Int
+    var currentPassengers: Int
 
-    fun unloadPassenger()
-}
-
-interface CargoCarrier {
-    fun loadCargo()
-
-    fun unloadCargo()
-}
-
-class Car : Moveable, PassengerCarrier {
-    val maxPassengers = 3
-    var currentPassengers = 0
-
-    override fun move() = println("Легковой автомобиль едет по дороге.")
-
-    override fun loadPassenger() {
+    fun loadPassenger() {
         if (currentPassengers < maxPassengers) {
             currentPassengers++
             println("Пассажир сел в машину. Всего пассажиров: $currentPassengers")
@@ -29,7 +15,7 @@ class Car : Moveable, PassengerCarrier {
         }
     }
 
-    override fun unloadPassenger() {
+    fun unloadPassenger() {
         if (currentPassengers > 0) {
             currentPassengers--
             println("Пассажир вышел из машины. Всего пассажиров: $currentPassengers")
@@ -39,33 +25,11 @@ class Car : Moveable, PassengerCarrier {
     }
 }
 
-class Truck : Moveable, PassengerCarrier, CargoCarrier {
-    val maxPassengers = 1
-    var currentPassengers = 0
-    val maxCargo = 2
-    var currentCargo = 0
+interface CargoCarrier {
+    val maxCargo: Int
+    var currentCargo: Int
 
-    override fun move() = println("Грузовик трогается с места.")
-
-    override fun loadPassenger() {
-        if (currentPassengers < maxPassengers) {
-            currentPassengers++
-            println("Пассажир сел в кабину. Всего пассажиров: $currentPassengers")
-        } else {
-            println("В машине нет свободных мест!")
-        }
-    }
-
-    override fun unloadPassenger() {
-        if (currentPassengers > 0) {
-            currentPassengers--
-            println("Пассажир вышел из кабины. Всего пассажиров: $currentPassengers")
-        } else {
-            println("В кабине нет пассажиров!")
-        }
-    }
-
-    override fun loadCargo() {
+    fun loadCargo() {
         if (currentCargo < maxCargo) {
             currentCargo++
             println("Загружена 1 тонна груза. Всего: $currentCargo т.")
@@ -74,7 +38,7 @@ class Truck : Moveable, PassengerCarrier, CargoCarrier {
         }
     }
 
-    override fun unloadCargo() {
+    fun unloadCargo() {
         if (currentCargo > 0) {
             currentCargo--
             println("Разгружена 1 тонна. Осталось: $currentCargo т.")
@@ -82,6 +46,22 @@ class Truck : Moveable, PassengerCarrier, CargoCarrier {
             println("Грузовик уже пуст!")
         }
     }
+}
+
+class Car : Movable, PassengerCarrier {
+    override val maxPassengers = 3
+    override var currentPassengers = 0
+
+    override fun move() = println("Легковой автомобиль едет по дороге.")
+}
+
+class Truck : Movable, PassengerCarrier, CargoCarrier {
+    override val maxPassengers = 1
+    override var currentPassengers = 0
+    override val maxCargo = 2
+    override var currentCargo = 0
+
+    override fun move() = println("Грузовик трогается с места.")
 }
 
 fun main() {
