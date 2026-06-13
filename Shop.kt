@@ -1,4 +1,4 @@
-class Order(val orderNumber: Int, private var status: OrderStatus) {
+class Order(private val orderNumber: Int, private var status: OrderStatus) {
     private fun updateStatus(newStatus: OrderStatus) {
         status = newStatus
     }
