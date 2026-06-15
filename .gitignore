@@ -1,0 +1,11 @@
+# IDE & Editor
+.vscode/
+.idea/
+*.iml
+
+# Build & Output
+build/
+out/
+*.class
+.gradle/
+local.properties
