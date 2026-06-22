@@ -8,7 +8,7 @@ fun main() {
         }
 
     lambdas.forEachIndexed { index, lambda ->
-        if (index % 2 == 0) {
+        if ((index + 1) % 2 == 0) {
             lambda()
         }
     }
