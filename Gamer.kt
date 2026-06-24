@@ -1,14 +1,14 @@
-class Gamer(
+class Player(
     val name: String,
-    var curretHealthLevel: Int,
+    var currentHealthLevel: Int,
     val maxHealthLevel: Int,
 )
 
-fun Gamer.isHealthy(): Boolean = curretHealthLevel == maxHealthLevel
+fun Player.isHealthy(): Boolean = currentHealthLevel == maxHealthLevel
 
 fun main() {
-    val player1 = Gamer("Ekaterina", 50, 100)
-    val player2 = Gamer("Nadezhda", 100, 100)
+    val player1 = Player("Ekaterina", 50, 100)
+    val player2 = Player("Nadezhda", 100, 100)
 
     println(player1.isHealthy())
     println(player2.isHealthy())
